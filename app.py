@@ -4,43 +4,12 @@ from flask import Flask, render_template, request, redirect, url_for
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 
-
 app = Flask(__name__)
-# app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///example.db"
-# app.config["SQLALCHEMY_TRACK_MODIFICATIONS"]= False
-# db = SQLAlchemy(app)
 client = MongoClient('localhost', 27017)
 db = client.flask_db
 students = db.student
 
-# class student(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     firstname = db.Column(db.String, nullable=False)
-#     lastname = db.Column(db.String, nullable=False)
-#     address = db.Column(db.String, nullable=False)
-#     def __repr__(self)->str:
-#         return f"{self.id} - {self.firstname}"
 
-# db.session.add()
-# db.session.commit()
-
-# users = student.query.all()
-
-# @app.route("/", methods=['GET','POST'])
-# def hello_world():
-#     if request.method=="POST":
-#         firstname=request.form['firstname']
-#         lastname=request.form['lastname']
-#         address=request.form['address']
-#         studInfo=student(firstname=firstname, lastname=lastname,address=address)
-#         db.session.add(studInfo)
-#         db.session.commit()
-#     Student_Info = student.query.all()
-#     return render_template('index.html' ,Student_Info=Student_Info)
-
-# @app.route("/get")
-# def demo():
-#     return "<p>Hello, Rohit!</p>"
 
 @app.route('/', methods=('GET', 'POST'))
 def index():
