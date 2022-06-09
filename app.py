@@ -43,8 +43,6 @@ def update(id):
      
     return render_template('update.html', selected_stud=selected_stud )
 
-# @app.route("/about")
-# def demo():
-#     return render_template('update.html')
+
 if __name__ == "__main__":
     app.run(debug=True)
