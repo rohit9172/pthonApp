@@ -5,7 +5,7 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 
 app = Flask(__name__)
-client = MongoClient('localhost', 27017)
+client = MongoClient('mongodb+srv://rohit:O46GepZHujtrKKxw@cluster0.vymfp.mongodb.net/test')
 db = client.flask_db
 students = db.student
 
