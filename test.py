@@ -14,10 +14,7 @@ app = Flask(__name__)
 
 
 def get_db_connection():
-    conn = psycopg2.connect(host='localhost',
-                            database='postgres',
-                            user='postgres',
-                            password='Password')
+    conn = psycopg2.connect('postgres://zjejojrgxgufct:d7f15519ef576eeb54db53aba41302af37a9b9fac758da427cbe43d25d5ced9f@ec2-54-147-33-38.compute-1.amazonaws.com:5432/d1iaj6lhqnj1j')
     return conn
 
 
