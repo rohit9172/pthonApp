@@ -32,7 +32,7 @@
       </nav>
       <br>
     <div class="container">
-      <form class="row g-3" action="/" method="POST">
+      <form class="row g-3" method="POST">
         <div class="col-md-6">
           <label for="inputEmail4" class="form-label">FirstName</label>
           <input type="text" class="form-control" name="firstname"  placeholder="Enter Name" required>
@@ -65,20 +65,19 @@
         <!-- {% if all_stud==0 %}
                 no record found
         {% else %} -->
-            {% for stud in all_stud %}
+            {% for studs in all_studs %}
             <tr>
                 <th scope="row">{{loop.index}}</th>
-                <td>{{stud.firstname}}</td>
-                <td>{{stud.lastname}}</td>
-                <td>{{stud.Address}}</td>
+                <td>{{studs[1]}}</td>
+                <td>{{studs[2]}}</td>
+                <td>{{studs[3]}}</td>
+               
+               
+                <td><a href="{{ url_for('delete', id=studs[0]) }}"><input type="submit" name="edit_btn" value="Delete"rel="tooltip" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this entry?')">
+                  <i class="material-icons" ></i></input></a>
+                  <a href="{{ url_for('update', id=studs[0])}}"><input type="submit" name="edit_btn" value="Edit"rel="tooltip" class="btn btn-primary">
+                      <i class="material-icons"></i></input></a></td>
                 
-                <!-- <td><form method="POST" action="{{ url_for('delete', id=stud._id) }}" >
-                        <input type="submit" value="Delete"
-                            onclick="return confirm('Are you sure you want to delete this entry?')"></td> -->
-                <td><a href="{{ url_for('delete', id=stud._id) }}"><input type="submit" name="edit_btn" value="Delete"rel="tooltip" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this entry?')">
-                                <i class="material-icons" ></i></input></a>
-                    <a href="{{ url_for('update', id=stud._id) }}"><input type="submit" name="edit_btn" value="Edit"rel="tooltip" class="btn btn-primary">
-                                    <i class="material-icons"></i></input></a></td>
             </tr>
             {% endfor %}
             <!-- {% endif %} -->
