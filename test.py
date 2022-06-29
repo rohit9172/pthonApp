@@ -44,7 +44,7 @@ def index():
         return redirect(url_for('index'))
     conn = get_db_connection()
     cur = conn.cursor()
-    cur.execute('SELECT * FROM studentsInfo;') 
+    cur.execute('SELECT * FROM salesforce.contact ORDER BY id ASC')
     all_studs = cur.fetchall() 
     cur.close()
     conn.close()
